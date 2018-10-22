@@ -3,5 +3,6 @@ class CreateIngredient < ActiveRecord::Migration[5.0]
     create_table :ingredients do |t|
       t.string :name
       t.integer :price
+    end
   end
 end
