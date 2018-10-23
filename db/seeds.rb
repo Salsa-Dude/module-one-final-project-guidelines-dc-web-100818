@@ -1,21 +1,32 @@
 
 require_relative "../app/models/burger.rb"
-require_relative "../app/models/burgerIngredient.rb"
+require_relative "../app/models/burger_ingredient.rb"
 require_relative "../app/models/ingredient.rb"
 
-burger1 = Burger.create(name: "Krabby Patty")
-burger2 = Burger.create(name: "Double Krabby Patty")
+Burger.destroy_all
+Ingredient.destroy_all
+BurgerIngredient.destroy_all
 
 
-lettace = Ingredient.create(name: "Lettace", 0.25)
-meat = Ingredient.create(name: "Meat", 2.25)
-tomato = Ingredient.create(name: "Tomato", 0.50)
-cheese = Ingredient.create(name: "Cheese", 1.00)
+# Burger 1
+burger1 = Burger.create(name: "Hamburger")
+# Burger 2
+burger2 = Burger.create(name: "Cheese Hamburger")
+# Burger 3 
+burger3 = Burger.create(name: "Double Cheeseburger")
+# Burger 4
+burger4 = Burger.create(name: "Chicken Grilled Burger")
 
-BurgerIngredient.create(burger1, lettace)
-BurgerIngredient.create(burger1, meat)
-BurgerIngredient.create(burger2, cheese)
-BurgerIngredient.create(burger2, meat)
-BurgerIngredient.create(burger2, meat)
+# Ingredients
+lettuce = Ingredient.create(name: "Lettuce", price: 0.25)
+meat = Ingredient.create(name: "Meat", price: 2.25)
+tomato = Ingredient.create(name: "Tomato", price: 0.50)
+cheese = Ingredient.create(name: "Cheese", price: 1.00)
+
+order1 = BurgerIngredient.create(burger: burger1, ingredient:lettuce)
+order2 = BurgerIngredient.create(burger: burger1, ingredient: meat)
+order3 = BurgerIngredient.create(burger: burger2, ingredient: cheese)
+order4 = BurgerIngredient.create(burger: burger2, ingredient: meat)
+order5 = BurgerIngredient.create(burger: burger2, ingredient: meat)
 
 
