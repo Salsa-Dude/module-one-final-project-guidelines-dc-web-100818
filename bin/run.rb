@@ -53,7 +53,10 @@ end
   puts "Yes or No"
 
   answer_input = gets.chomp.downcase
-
+  while answer_input != "yes" && answer_input != "no"
+    puts "Please enter yes or no!"
+    answer_input = gets.chomp.downcase
+  end
 
   while answer_input == "yes"
     new_burger.menu_output
@@ -92,12 +95,12 @@ end
     when "no"
       puts "Here's your order!"
       puts  '
-      
+
                -""""-.
-             /  .   . \  
-            (`-..:...- )  
-             ;-......-;   
-              "------" 
+             /  .   . \
+            (`-..:...- )
+             ;-......-;
+              "------"
       '
     when "yes"
       puts "Do you want to ADD or DELETE an ingredient?"
@@ -126,13 +129,13 @@ end
           # comparing and finding a match instance of an ingredient
           new_ingredient = Ingredient.find_by(name: ing_input)
           p new_ingredient
-      
+
           # creating a burger ingredient
           new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
           new_burger = Burger.all.find(new_burger.id)
           p "Current Ingredients: #{new_burger.output_ingredient}"
           p new_burger.price
-        
+
           puts "Any more ingredients?"
           puts "Yes or No"
           answer_input = gets.chomp.downcase
@@ -154,16 +157,16 @@ end
         puts "Yes or No"
         answer_input = gets.chomp.downcase
 ####
-        while answer_input == "yes" 
+        while answer_input == "yes"
           new_burger.menu_output
           p "Current Ingredients: #{new_burger.output_ingredient}"
           ing_input = gets.chomp.capitalize
-          
+
           # comparing and finding a match instance of an ingredient
           find_ingredient = Ingredient.find_by(name: ing_input)
           new_burger.delete_ingredient(find_ingredient)
           p "Current Ingredients: #{new_burger.output_ingredient}"
-          
+
           # If ingredients don't have any ingredients return order
           if new_burger.ingredients.empty? == true
             return puts "Here's your Order!"
@@ -178,15 +181,9 @@ end
           puts "https://codepen.io/JoEaZy/full/GYwyxO/"
         end
 
-        
+
       when "no"
         puts "Main menu"
       end
     end
   end
-
-
-
-
-
-
