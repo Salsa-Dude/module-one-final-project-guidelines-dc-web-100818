@@ -46,9 +46,9 @@ print '
   p "Current Ingredients: #{new_burger.output_ingredient}"
   p new_burger.price
   # binding.pry
-else
+  else
   p "Sorry, we don't have that."
-end
+  end
   puts "Any more ingredients?"
   puts "Yes or No"
 
@@ -123,6 +123,7 @@ end
         puts "Any more ingredients?"
         puts "Yes or No"
         answer_input = gets.chomp.downcase
+        
         while answer_input == "yes"
           new_burger.menu_output
           ing_input = gets.chomp.capitalize
