@@ -17,7 +17,7 @@ BurgerIngredient.destroy_all
 # # Burger 4
 # burger4 = Burger.create(name: "Chicken Grilled Burger")
 
-# Ingredients
+Ingredients
 Lettuce = Ingredient.create(name: "Lettuce", price: 0.25)
 Meat = Ingredient.create(name: "Meat", price: 2.25)
 Tomato = Ingredient.create(name: "Tomato", price: 0.50)

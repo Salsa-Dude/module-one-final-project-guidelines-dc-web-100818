@@ -1,8 +1,10 @@
 require 'pry'
 class Burger < ActiveRecord::Base
+  attr_accessor :logo
   has_many :burger_ingredients
   has_many :ingredients, through: :burger_ingredients
 
+  
   def menu_output
     p "Type an ingredient"
     puts "*****MENU******"
