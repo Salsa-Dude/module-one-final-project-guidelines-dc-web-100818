@@ -25,8 +25,8 @@ print '
 '
 
   p "Hi, Welome to Flatiron Burger!"
-  p "Make your own Burger"
-  p "What is the name of the order?"
+  p "Build your own Burger"
+  p "What is the name for the order?"
   name_input = gets.chomp
   new_burger = Burger.create(name: name_input)
   p new_burger
@@ -85,12 +85,20 @@ end
     puts "Yes or No"
     # binding.pry
     answer_input = gets.chomp.downcase
+    while answer_input != "yes" && answer_input != "no"
+      puts "Please enter yes or no!"
+      answer_input = gets.chomp.downcase
+    end
   end
 
   if answer_input == "no"
     puts "Do you want to update the order?"
     puts "Yes or No"
     order_input = gets.chomp.downcase
+    while order_input != "yes" && order_input != "no"
+      puts "Please enter yes or no!"
+      order_input = gets.chomp.downcase
+    end
     case order_input
     when "no"
       puts "Here's your order!"
@@ -106,6 +114,10 @@ end
       puts "Do you want to ADD or DELETE an ingredient?"
       puts "Type no if neither"
       ingredient_input = gets.chomp.downcase
+      while ingredient_input != "add" && ingredient_input != "delete" && ingredient_input != "no"
+        puts "Please enter add or delete or no."
+        ingredient_input = gets.chomp.downcase
+      end
       case ingredient_input
       when "add"
         new_burger.menu_output
@@ -123,6 +135,12 @@ end
         puts "Any more ingredients?"
         puts "Yes or No"
         answer_input = gets.chomp.downcase
+        while answer_input != "yes" && answer_input != "no"
+            puts "Please enter yes or no!"
+            answer_input = gets.chomp.downcase
+          end
+
+
         while answer_input == "yes"
           new_burger.menu_output
           ing_input = gets.chomp.capitalize
