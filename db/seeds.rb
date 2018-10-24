@@ -18,11 +18,11 @@ BurgerIngredient.destroy_all
 # burger4 = Burger.create(name: "Chicken Grilled Burger")
 
 # Ingredients
-# Lettuce = Ingredient.create(name: "Lettuce", price: 0.25)
-# Meat = Ingredient.create(name: "Meat", price: 2.25)
-# Tomato = Ingredient.create(name: "Tomato", price: 0.50)
-# Cheese = Ingredient.create(name: "Cheese", price: 1.00)
-# Onion = Ingredient.create(name: "Onion", price: 0.15)
+Lettuce = Ingredient.create(name: "Lettuce", price: 0.25)
+Meat = Ingredient.create(name: "Meat", price: 2.25)
+Tomato = Ingredient.create(name: "Tomato", price: 0.50)
+Cheese = Ingredient.create(name: "Cheese", price: 1.00)
+Onion = Ingredient.create(name: "Onion", price: 0.15)
 
 # order1 = BurgerIngredient.create(burger: burger1, ingredient:lettuce)
 # order2 = BurgerIngredient.create(burger: burger1, ingredient: meat)

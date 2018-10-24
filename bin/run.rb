@@ -11,18 +11,14 @@ require "pry"
   new_burger.menu_output
   ing_input = gets.chomp.capitalize
 
-  new_ingredeint = Ingredient.createPrice(ing_input)
-  p new_ingredeint
-
-  comparing and finding a match instance of an ingredient
-  new_ingredient = Ingredient.create(name: ing_input)
+  # comparing and finding a match instance of an ingredient
+  new_ingredient = Ingredient.find_by(name: ing_input)
   p new_ingredient
 
   # creating a burger ingredient
   new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
   p "Current Ingredients: #{new_burger.output_ingredient}"
   p new_burger.price
-  binding.pry
   puts "Any more ingredients?"
   puts "Yes or No"
 
@@ -38,14 +34,13 @@ require "pry"
 
     # creating a burger ingredient
     new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
-    new_burger.ingredients << new_ingredient
+    new_burger = Burger.all.find(new_burger.id)
     p "Current Ingredients: #{new_burger.output_ingredient}"
     p new_burger.price
     # binding.pry
 
     puts "Any more ingredients?"
     puts "Yes or No"
-    binding.pry
     answer_input = gets.chomp.downcase
   end
 
