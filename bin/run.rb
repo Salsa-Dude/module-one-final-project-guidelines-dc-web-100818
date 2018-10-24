@@ -11,7 +11,7 @@ puts  '
                                                          __/ |
                                                         |___/
 '
-print '
+puts '
       /
    .-/-.
    | - |
@@ -103,12 +103,17 @@ print '
     when "no"
       puts "Here's your order!"
       puts  '
+         _....----"""----...._
+      .-"  o    o    o    o   "-.
+     /  o    o    o         o    \
+    /     o      o   o     o    o \
+  _|   o   o    o      o  o     o  |_
+ / `""-----.................-----""` \
+ \___________________________________/
+   \~`-`.__.`-~`._.~`-`~.-~.__.~`-`/
+    \                             /
+     `-._______________________.-"
 
-               -""""-.
-             /  .   . \
-            (`-..:...- )
-             ;-......-;
-              "------"
       '
     when "yes"
       puts "Do you want to ADD or DELETE an ingredient?"
@@ -157,8 +162,20 @@ print '
           answer_input = gets.chomp.downcase
         end
         if answer_input == "no"
-          puts "Here's your Order!"
-          puts "https://codepen.io/JoEaZy/full/GYwyxO/"
+          puts "Here's your order!"
+          puts  '
+         _....----"""----...._
+      .-"  o    o    o    o   "-.
+     /  o    o    o         o    \
+    /     o      o   o     o    o \
+  _|   o   o    o      o  o     o  |_
+ / `""-----.................-----""` \
+ \___________________________________/
+   \~`-`.__.`-~`._.~`-`~.-~.__.~`-`/
+    \                             /
+     `-._______________________.-"
+
+      '
         end
       when "delete"
         new_burger.menu_output
@@ -193,13 +210,38 @@ print '
           answer_input = gets.chomp.downcase
         end
         if answer_input == "no"
-          "Here's your Order!"
-          puts "https://codepen.io/JoEaZy/full/GYwyxO/"
+          puts "Here's your order!"
+          puts  '
+         _....----"""----...._
+      .-"  o    o    o    o   "-.
+     /  o    o    o         o    \
+    /     o      o   o     o    o \
+  _|   o   o    o      o  o     o  |_
+ / `""-----.................-----""` \
+ \___________________________________/
+   \~`-`.__.`-~`._.~`-`~.-~.__.~`-`/
+    \                             /
+     `-._______________________.-"
+
+      '
         end
 
 
       when "no"
-        puts "Main menu"
+        puts "Here's your order!"
+        puts  '
+         _....----"""----...._
+      .-"  o    o    o    o   "-.
+     /  o    o    o         o    \
+    /     o      o   o     o    o \
+  _|   o   o    o      o  o     o  |_
+ / `""-----.................-----""` \
+ \___________________________________/
+   \~`-`.__.`-~`._.~`-`~.-~.__.~`-`/
+    \                             /
+     `-._______________________.-"
+
+      '
       end
     end
   end

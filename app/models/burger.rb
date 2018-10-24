@@ -7,7 +7,12 @@ class Burger < ActiveRecord::Base
   
   def menu_output
     p "Type an ingredient"
-    puts "*****MENU******"
+    puts '
+     _ __ ___   ___ _ __  _   _ 
+    |  _ ` _ \ / _ \  _ \| | | |
+    | | | | | |  __/ | | | |_| |
+    |_| |_| |_|\___|_| |_|\__,_|
+    '
     count = 0
     puts Ingredient.all.map {|ing| "#{count += 1}. #{ing.name} -------- $#{ing.price}" }
   end
