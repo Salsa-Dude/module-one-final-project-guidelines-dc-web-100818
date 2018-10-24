@@ -16,8 +16,22 @@ class Burger < ActiveRecord::Base
     self.ingredients.map{|ing| ing.name}
   end
 
+  def check_ingredients
+    if self.ingredients.length <= 0
+      puts "Nothing here"
+    end
+  end 
+
   def price
     "Your current price $#{ self.ingredients.map{|ing| ing.price}.reduce(:+)}"
+  end
+
+  def delete_ingredient(ingredient)
+    self.ingredients.select do |ing|
+      if ingredient == ing
+        self.ingredients.delete(ing)
+      end
+    end
   end
 
 

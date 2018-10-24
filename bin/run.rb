@@ -23,6 +23,7 @@ print '
            "------"    \____/
 
 '
+
   p "Hi, Welome to Flatiron Burger!"
   p "Make your own Burger"
   p "What is the name of the order?"
@@ -59,11 +60,115 @@ print '
     new_burger = Burger.all.find(new_burger.id)
     p "Current Ingredients: #{new_burger.output_ingredient}"
     p new_burger.price
-    # binding.pry
-
+  
     puts "Any more ingredients?"
     puts "Yes or No"
     answer_input = gets.chomp.downcase
   end
+
+  if answer_input == "no"
+    puts "Do you want to update the order?"
+    puts "Yes or No"
+    order_input = gets.chomp.downcase
+    case order_input
+    when "no"
+      puts "Here's your order!"
+      puts  '
+      
+               -""""-.
+             /  .   . \  
+            (`-..:...- )  
+             ;-......-;   
+              "------" 
+      '
+    when "yes"
+      puts "Do you want to ADD or DELETE an ingredient?"
+      puts "Type no if neither"
+      ingredient_input = gets.chomp.downcase
+      case ingredient_input
+      when "add"
+        new_burger.menu_output
+        ing_input = gets.chomp.capitalize
+        # comparing and finding a match instance of an ingredient
+        new_ingredient = Ingredient.find_by(name: ing_input)
+        p new_ingredient
+
+        # creating a burger ingredient
+        new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
+        new_burger = Burger.all.find(new_burger.id)
+        p "Current Ingredients: #{new_burger.output_ingredient}"
+        p new_burger.price
+
+        puts "Any more ingredients?"
+        puts "Yes or No"
+        answer_input = gets.chomp.downcase
+        while answer_input == "yes"
+          new_burger.menu_output
+          ing_input = gets.chomp.capitalize
+          # comparing and finding a match instance of an ingredient
+          new_ingredient = Ingredient.find_by(name: ing_input)
+          p new_ingredient
+      
+          # creating a burger ingredient
+          new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
+          new_burger = Burger.all.find(new_burger.id)
+          p "Current Ingredients: #{new_burger.output_ingredient}"
+          p new_burger.price
+        
+          puts "Any more ingredients?"
+          puts "Yes or No"
+          answer_input = gets.chomp.downcase
+        end
+        if answer_input == "no"
+          puts "Here's your Order!"
+          puts "https://codepen.io/JoEaZy/full/GYwyxO/"
+        end
+      when "delete"
+        new_burger.menu_output
+        p "Current Ingredients: #{new_burger.output_ingredient}"
+        ing_input = gets.chomp.capitalize
+        # comparing and finding a match instance of an ingredient
+        find_ingredient = Ingredient.find_by(name: ing_input)
+        new_burger.delete_ingredient(find_ingredient)
+        p "Current Ingredients: #{new_burger.output_ingredient}"
+
+        puts "Delete any more ingredients?"
+        puts "Yes or No"
+        answer_input = gets.chomp.downcase
+####
+        while answer_input == "yes" 
+          new_burger.menu_output
+          p "Current Ingredients: #{new_burger.output_ingredient}"
+          ing_input = gets.chomp.capitalize
+          
+          # comparing and finding a match instance of an ingredient
+          find_ingredient = Ingredient.find_by(name: ing_input)
+          new_burger.delete_ingredient(find_ingredient)
+          p "Current Ingredients: #{new_burger.output_ingredient}"
+          
+          # If ingredients don't have any ingredients return order
+          if new_burger.ingredients.empty? == true
+            return puts "Here's your Order!"
+          end
+
+          puts "Delete any more ingredients?"
+          puts "Yes or No"
+          answer_input = gets.chomp.downcase
+        end
+        if answer_input == "no"
+          "Here's your Order!"
+          puts "https://codepen.io/JoEaZy/full/GYwyxO/"
+        end
+
+        
+      when "no"
+        puts "Main menu"
+      end
+    end
+  end
+
+
+
+
 
 
