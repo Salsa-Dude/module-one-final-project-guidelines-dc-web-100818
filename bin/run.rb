@@ -43,7 +43,7 @@ puts '
 
   # creating a burger ingredient
   new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
-  p "Current Ingredients: #{new_burger.output_ingredient}"
+  puts "Current Ingredients: #{new_burger.output_ingredient}"
   p new_burger.price
   # binding.pry
   else
@@ -102,7 +102,6 @@ puts '
     case order_input
     when "no"
       puts ' 
-      
        _    _               _                                              _           _ 
       | |  | |             ( )                                            | |         | |
       | |__| | ___ _ __ ___|/ ___   _   _  ___  _   _ _ __    ___  _ __ __| | ___ _ __| |
@@ -111,8 +110,8 @@ puts '
       |_|  |_|\___|_|  \___| |___/  \__, |\___/ \__,_|_|     \___/|_|  \__,_|\___|_|  ( )
                                      __/ |                                               
                                     |___/                                               
-      
       '
+      puts new_burger.total_price
       puts  '
          _....----"""----...._
       .-"  o    o    o    o   "-.
@@ -185,6 +184,8 @@ puts '
                                     |___/                                               
       
       '
+
+      puts new_burger.total_price
           puts  '
          _....----"""----...._
       .-"  o    o    o    o   "-.

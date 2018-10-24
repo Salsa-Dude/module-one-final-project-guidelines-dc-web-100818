@@ -28,8 +28,20 @@ class Burger < ActiveRecord::Base
   end 
 
   def price
-    "Your current price $#{ self.ingredients.map{|ing| ing.price}.reduce(:+)}"
+    if self.ingredients.empty?
+      "Your current price is $0"
+    else
+      "Your current price is $#{ self.ingredients.map{|ing| ing.price}.reduce(:+)}"
+    end
   end
+
+  def total_price
+    if self.ingredients.empty?
+      "Your current price is $0"
+    else
+    "Your total price is $#{ self.ingredients.map{|ing| ing.price}.reduce(:+)}"
+    end
+  end 
 
   def delete_ingredient(ingredient)
     self.ingredients.select do |ing|
