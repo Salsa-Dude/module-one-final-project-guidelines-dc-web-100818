@@ -43,7 +43,7 @@ puts '
 
   # creating a burger ingredient
   new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
-  puts "Current Ingredients: #{new_burger.output_ingredient}"
+  puts "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
   p new_burger.price
   # binding.pry
   else
@@ -75,7 +75,7 @@ puts '
 
       # binding.pry
 
-      p "Current Ingredients: #{new_burger.output_ingredient}"
+      p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
       p new_burger.price
     else
       p "Sorry, we don't have that."
@@ -144,7 +144,7 @@ puts '
         # creating a burger ingredient
         new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
         new_burger = Burger.all.find(new_burger.id)
-        p "Current Ingredients: #{new_burger.output_ingredient}"
+        p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
         p new_burger.price
 
         puts "Any more ingredients?"
@@ -164,7 +164,7 @@ puts '
           # creating a burger ingredient
           new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
           new_burger = Burger.all.find(new_burger.id)
-          p "Current Ingredients: #{new_burger.output_ingredient}"
+          p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
           p new_burger.price
 
           puts "Any more ingredients?"
@@ -202,12 +202,12 @@ puts '
         end
       when "delete"
         new_burger.menu_output
-        p "Current Ingredients: #{new_burger.output_ingredient}"
+        p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
         ing_input = gets.chomp.capitalize
         # comparing and finding a match instance of an ingredient
         find_ingredient = Ingredient.find_by(name: ing_input)
         new_burger.delete_ingredient(find_ingredient)
-        p "Current Ingredients: #{new_burger.output_ingredient}"
+        p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
 
         puts "Delete any more ingredients?"
         puts "Yes or No"
@@ -215,13 +215,13 @@ puts '
 
         while answer_input == "yes"
           new_burger.menu_output
-          p "Current Ingredients: #{new_burger.output_ingredient}"
+          p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
           ing_input = gets.chomp.capitalize
 
           # comparing and finding a match instance of an ingredient
           find_ingredient = Ingredient.find_by(name: ing_input)
           new_burger.delete_ingredient(find_ingredient)
-          p "Current Ingredients: #{new_burger.output_ingredient}"
+          p "CURRENT INGREDIENTS: #{new_burger.output_ingredient}"
 
           # If ingredients don't have any ingredients return order
           if new_burger.ingredients.empty? == true

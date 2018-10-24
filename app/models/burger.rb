@@ -6,7 +6,7 @@ class Burger < ActiveRecord::Base
 
   
   def menu_output
-    p "Type an ingredient"
+    p "TYPE AN INGREDIENT"
     puts '
      _ __ ___   ___ _ __  _   _ 
     |  _ ` _ \ / _ \  _ \| | | |
