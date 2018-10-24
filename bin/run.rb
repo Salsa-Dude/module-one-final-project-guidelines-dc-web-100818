@@ -36,14 +36,16 @@ require "pry"
 
     # creating a burger ingredient
     new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
-    new_burger.ingredients << new_ingredient
+    p new_burger.ingredients
+    new_burger = Burger.all.find(new_burger.id)
+    p new_burger.ingredients
     p "Current Ingredients: #{new_burger.output_ingredient}"
     p new_burger.price
-    # binding.pry
+    binding.pry
 
     puts "Any more ingredients?"
     puts "Yes or No"
-    binding.pry
+    # binding.pry
     answer_input = gets.chomp.downcase
   end
 
