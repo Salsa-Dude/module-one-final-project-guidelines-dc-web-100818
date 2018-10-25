@@ -6,7 +6,6 @@ class Burger < ActiveRecord::Base
 
   
   def menu_output
-    p "TYPE AN INGREDIENT"
     puts '
      _ __ ___   ___ _ __  _   _ 
     |  _ ` _ \ / _ \  _ \| | | |
@@ -15,6 +14,7 @@ class Burger < ActiveRecord::Base
     '
     count = 0
     puts Ingredient.all.map {|ing| "#{count += 1}. #{ing.name} -------- $#{ing.price}" }
+    puts "TYPE AN INGREDIENT"
   end
 
   def output_ingredient
@@ -43,6 +43,7 @@ class Burger < ActiveRecord::Base
     end
   end 
 
+# NEED TO FIX 
   def delete_ingredient(ingredient)
     self.ingredients.select do |ing|
       if ingredient == ing
@@ -51,8 +52,43 @@ class Burger < ActiveRecord::Base
     end
   end
 
+  def display_both_current_price
+    p "CURRENT INGREDIENTS: #{self.output_ingredient}"
+    p self.price
+  end
 
-      # total_price = self.ingredients.map{|ing| ing.price}.reduce(:+)
-      # p "Your price is #{n_b_ingredient.ingredient.price}"
+  def return_order
+    puts ' 
+       _    _               _                                              _           _ 
+      | |  | |             ( )                                            | |         | |
+      | |__| | ___ _ __ ___|/ ___   _   _  ___  _   _ _ __    ___  _ __ __| | ___ _ __| |
+      |  __  |/ _ \  __/ _ \ / __| | | | |/ _ \| | | |  __|  / _ \|  __/ _` |/ _ \  __| |
+      | |  | |  __/ | |  __/ \__ \ | |_| | (_) | |_| | |    | (_) | | | (_| |  __/ |  |_|
+      |_|  |_|\___|_|  \___| |___/  \__, |\___/ \__,_|_|     \___/|_|  \__,_|\___|_|  ( )
+                                     __/ |                                               
+                                    |___/                                               
+      '
+    puts  '
+         _....----"""----...._
+      .-"  o    o    o    o   "-.
+     /  o    o    o         o    \
+    /     o      o   o     o    o \
+  _|   o   o    o      o  o     o  |_
+ / `""-----.................-----""` \
+ \___________________________________/
+   \~`-`.__.`-~`._.~`-`~.-~.__.~`-`/
+    \                             /
+     `-._______________________.-"
+
+      '
+    if self.output_ingredient.empty?
+      puts "GET OUT!! if you're going to order anything"
+    else 
+      puts "Your hamburger contains #{self.output_ingredient}"
+      puts self.total_price
+    end
+  end 
+
+
   
 end
