@@ -1,7 +1,7 @@
 
 # Flatiron Burger
 
-Flatiron Burger let's you create and customize a burger. User can add ingredient or delete by typing a ingredient in the command line. User can also be able to start another order. 
+Flatiron Burger let's you create and customize a burger. User can add an ingredient or delete an ingredient by typing any ingredient that is on the menu in the terminal. User can also be able to retrieve a past order and have that order. User can also be able to start another order. 
 
 ## Installation
 1. Fork and clone this repo
