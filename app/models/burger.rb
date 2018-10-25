@@ -6,7 +6,6 @@ class Burger < ActiveRecord::Base
 
   
   def menu_output
-    p "TYPE AN INGREDIENT"
     puts '
      _ __ ___   ___ _ __  _   _ 
     |  _ ` _ \ / _ \  _ \| | | |
@@ -15,6 +14,7 @@ class Burger < ActiveRecord::Base
     '
     count = 0
     puts Ingredient.all.map {|ing| "#{count += 1}. #{ing.name} -------- $#{ing.price}" }
+    puts "TYPE AN INGREDIENT"
   end
 
   def output_ingredient
@@ -43,12 +43,18 @@ class Burger < ActiveRecord::Base
     end
   end 
 
+# NEED TO FIX 
   def delete_ingredient(ingredient)
     self.ingredients.select do |ing|
       if ingredient == ing
         self.ingredients.delete(ing)
       end
     end
+  end
+
+  def display_both_current_price
+    p "CURRENT INGREDIENTS: #{self.output_ingredient}"
+    p self.price
   end
 
   def return_order
@@ -62,8 +68,6 @@ class Burger < ActiveRecord::Base
                                      __/ |                                               
                                     |___/                                               
       '
-      puts self.total_price
-
     puts  '
          _....----"""----...._
       .-"  o    o    o    o   "-.
@@ -77,6 +81,12 @@ class Burger < ActiveRecord::Base
      `-._______________________.-"
 
       '
+    if self.output_ingredient.empty?
+      puts "GET OUT!! if you're going to order anything"
+    else 
+      puts "Your hamburger contains #{self.output_ingredient}"
+      puts self.total_price
+    end
   end 
 
 
