@@ -27,9 +27,10 @@ class Order
 
     '
 
-    p "Hi, Welome to Flatiron Burger!"
-    p "Build your own Burger"
-    p "What is the name for the order?"
+    hello_message = "Hi, Welome to Flatiron Burger!"
+    `say #{hello_message}`
+    puts "Build your own Burger"
+    puts "What is the name for the order?"
     name_input = gets.chomp
     new_burger = Burger.create(name: name_input)
     p new_burger
