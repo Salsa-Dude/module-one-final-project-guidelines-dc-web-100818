@@ -1,5 +1,4 @@
 require_relative '../config/environment'
-require_relative '../helper.rb'
 require "pry"
 
 puts  '
