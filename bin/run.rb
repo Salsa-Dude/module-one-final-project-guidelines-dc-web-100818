@@ -5,7 +5,7 @@ class Order
 
   def begin
     puts  '
-    ______ _        _   _                   ____
+    ______ _       _   _                   ____
     |  ____| |     | | (_)                 |  _ \
     | |__  | | __ _| |_ _ _ __ ___  _ __   | |_) |_   _ _ __ __ _  ___ _ __
     |  __| | |/ _` | __| |  __/ _ \| _ \  |  _ <| | | |  __/ _` |/ _ \  __|
@@ -28,10 +28,46 @@ class Order
     '
 
     hello_message = "Hi, Welome to Flatiron Burger!"
-    `say -v "victoria" #{hello_message}`
+    `say -v "kathy" #{hello_message}`
     puts "Build your own Burger"
     puts "What is the name for the order?"
     name_input = gets.chomp
+    new_burger = Burger.find_by(name: name_input)
+    if new_burger
+      puts "You recently built a burger with #{new_burger.output_ingredient}, would you like to reorder now?"
+      puts "please type yes or no."
+      user_input = gets.chomp.downcase
+      if user_input == "yes"
+        puts ' 
+       _    _               _                                              _           _ 
+      | |  | |             ( )                                            | |         | |
+      | |__| | ___ _ __ ___|/ ___   _   _  ___  _   _ _ __    ___  _ __ __| | ___ _ __| |
+      |  __  |/ _ \  __/ _ \ / __| | | | |/ _ \| | | |  __|  / _ \|  __/ _` |/ _ \  __| |
+      | |  | |  __/ | |  __/ \__ \ | |_| | (_) | |_| | |    | (_) | | | (_| |  __/ |  |_|
+      |_|  |_|\___|_|  \___| |___/  \__, |\___/ \__,_|_|     \___/|_|  \__,_|\___|_|  ( )
+                                     __/ |                                               
+                                    |___/                                               
+      '
+        puts  '
+            _....----"""----...._
+          .-"  o    o    o    o   "-.
+        /  o    o    o         o    \
+        /     o      o   o     o    o \
+      _|   o   o    o      o  o     o  |_
+    / `""-----.................-----""` \
+    \___________________________________/
+      \~`-`.__.`-~`._.~`-`~.-~.__.~`-`/
+        \                             /
+        `-._______________________.-"
+
+          '
+        puts "Your hamburger contains #{new_burger.output_ingredient}"
+        puts new_burger.total_price
+
+        return
+      end
+    end 
+    
     new_burger = Burger.create(name: name_input)
     p new_burger
 
