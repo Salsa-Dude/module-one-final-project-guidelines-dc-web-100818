@@ -5,7 +5,7 @@ class Order
 
   def begin 
     puts  '
-    ______ _       _   _                   ____
+    ______ _        _   _                   ____
     |  ____| |     | | (_)                 |  _ \
     | |__  | | __ _| |_ _ _ __ ___  _ __   | |_) |_   _ _ __ __ _  ___ _ __
     |  __| | |/ _` | __| |  __/ _ \| _ \  |  _ <| | | |  __/ _` |/ _ \  __|
@@ -28,7 +28,7 @@ class Order
     '
 
     hello_message = "Hi, Welome to Flatiron Burger!"
-    `say #{hello_message}`
+    `say -v "victoria" #{hello_message}`
     puts "Build your own Burger"
     puts "What is the name for the order?"
     name_input = gets.chomp
