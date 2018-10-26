@@ -58,6 +58,19 @@ class Burger < ActiveRecord::Base
   end
 
   def return_order
+    if self.output_ingredient.empty?
+      puts '
+       ______     __                 __  ____   
+      / ____/__  / /_   ____  __  __/ /_/ / /   
+     / / __/ _ \/ __/  / __ \/ / / / __/ / /    
+    / /_/ /  __/ /_   / /_/ / /_/ / /_/_/_/     
+    \____/\___/\__/   \____/\__,_/\__(_|_)      
+                                              
+    '
+      return puts "IF YOU'RE NOT ORDERING ANYTHING!"
+    else
+      thankyou_message = "Thank you #{self.name}, come back again"
+      `say -v "victoria" #{thankyou_message}`
     puts ' 
        _    _               _                                              _           _ 
       | |  | |             ( )                                            | |         | |
@@ -81,9 +94,6 @@ class Burger < ActiveRecord::Base
      `-._______________________.-"
 
       '
-    if self.output_ingredient.empty?
-      puts "GET OUT!! if you're going to order anything"
-    else 
       puts "Your hamburger contains #{self.output_ingredient}"
       puts self.total_price
     end
