@@ -69,7 +69,7 @@ class Order
     end 
     
     new_burger = Burger.create(name: name_input)
-    p new_burger
+    # p new_burger
 
     # outputs menu and get user input
     new_burger.menu_output
@@ -82,7 +82,7 @@ class Order
     # if true create a burger ingredient
     # if false output error message and ask user for input again
     if new_ingredient
-      p new_ingredient
+      # p new_ingredient
       new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
       new_burger.display_both_current_price
     else
@@ -116,7 +116,7 @@ class Order
       # testing to see if new_ingredient exists
       # if false output error message and ask user for input again
       if new_ingredient
-        p new_ingredient
+        # p new_ingredient
 
         # creating a burger ingredient
         new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
@@ -197,7 +197,7 @@ class Order
 
           # comparing and finding a match instance of an ingredient from user input
           new_ingredient = Ingredient.find_by(name: ing_input)
-          p new_ingredient
+          # p new_ingredient
 
           # creating a burger ingredient
           new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
@@ -217,7 +217,7 @@ class Order
             ing_input = gets.chomp.capitalize
             # comparing and finding a match instance of an ingredient
             new_ingredient = Ingredient.find_by(name: ing_input)
-            p new_ingredient
+            # p new_ingredient
 
             # creating a burger ingredient
             new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
