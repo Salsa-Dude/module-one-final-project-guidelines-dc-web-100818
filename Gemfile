@@ -6,5 +6,6 @@ gem "sqlite3"
 gem "pry"
 gem 'rspec'
 gem 'database_cleaner'
+gem 'rake'
 gem "require_all"
 gem "rake"
