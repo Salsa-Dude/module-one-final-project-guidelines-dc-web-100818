@@ -1,9 +1,9 @@
 require_relative '../config/environment'
 require "pry"
 
-class Order 
+class Order
 
-  def begin 
+  def begin
     puts  '
     ______ _       _   _                   ____
     |  ____| |     | | (_)                 |  _ \
@@ -77,7 +77,7 @@ class Order
 
     # comparing and finding a match instance of an ingredient from user input
     new_ingredient = Ingredient.find_by(name: ing_input)
-    
+
     # testing to see if new_ingredient exists
     # if true create a burger ingredient
     # if false output error message and ask user for input again
@@ -95,7 +95,7 @@ class Order
 
     # get user input
     answer_input = gets.chomp.downcase
-    
+
     # checks to see if user input is not a yes or no
     # wil ask user input again if true
     while answer_input != "yes" && answer_input != "no"
@@ -109,7 +109,7 @@ class Order
       # display menu and get user input
       new_burger.menu_output
       ing_input = gets.chomp.capitalize
-      
+
       # comparing and finding a match instance of an ingredient
       new_ingredient = Ingredient.find_by(name: ing_input)
 
@@ -117,11 +117,11 @@ class Order
       # if false output error message and ask user for input again
       if new_ingredient
         p new_ingredient
-        
+
         # creating a burger ingredient
         new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
         new_burger = Burger.all.find(new_burger.id)
-        
+
         # display current ingredients and current total price
         new_burger.display_both_current_price
       else
@@ -131,9 +131,9 @@ class Order
       # ask user if they want to add any more ingredients
       puts "Any more ingredients?"
       puts "Yes or No"
-    
+
       answer_input = gets.chomp.downcase
-      
+
       # checks to see if user input is not a yes or no
       # wil ask user input again if true
       while answer_input != "yes" && answer_input != "no"
@@ -147,21 +147,21 @@ class Order
       puts "Do you want to update the order?"
       puts "Yes or No"
       order_input = gets.chomp.downcase
-      
+
       # checks to see if user input is not a yes or no
       # wil ask user input again if true
       while order_input != "yes" && order_input != "no"
         puts "Please enter yes or no!"
         order_input = gets.chomp.downcase
       end
-      
+
       # check user's input
       case order_input
       # when user types "no"
       when "no"
         # display order summary
         new_burger.return_order
-        
+
         # ask user if they want to make another order
         puts "Want to make another order?"
         puts "Yes or No"
@@ -186,7 +186,7 @@ class Order
           puts "Please enter add or delete or no."
           ingredient_input = gets.chomp.downcase
         end
-        
+
         # check user's input
         case ingredient_input
           # when user types "add"
@@ -194,7 +194,7 @@ class Order
           # display menu and get user input
           new_burger.menu_output
           ing_input = gets.chomp.capitalize
-          
+
           # comparing and finding a match instance of an ingredient from user input
           new_ingredient = Ingredient.find_by(name: ing_input)
           p new_ingredient
@@ -222,7 +222,7 @@ class Order
             # creating a burger ingredient
             new_burger_ingredient = BurgerIngredient.create(burger: new_burger, ingredient: new_ingredient)
             new_burger = Burger.all.find(new_burger.id)
-            
+
             # display current ingredients and current total price
             new_burger.display_both_current_price
 
@@ -230,7 +230,7 @@ class Order
             puts "Yes or No"
             answer_input = gets.chomp.downcase
           end
-          
+
           # when user types "no"
           if answer_input == "no"
             # display order summary
@@ -255,9 +255,9 @@ class Order
           new_burger.display_both_current_price
 
           puts "Type which ingredient do you want to delete?"
-          
+
           ing_input = gets.chomp.capitalize
-          
+
           # comparing and finding a match instance of an ingredient from user input
           find_ingredient = Ingredient.find_by(name: ing_input)
 
@@ -271,10 +271,10 @@ class Order
           while answer_input == "yes"
             # display menu
             new_burger.menu_output
-            
+
             # display current ingredients and current total price
             new_burger.display_both_current_price
-            
+
             ing_input = gets.chomp.capitalize
 
             # comparing and finding a match instance of an ingredient from user input
@@ -282,7 +282,7 @@ class Order
 
             # delete ingredient
             new_burger.delete_ingredient(find_ingredient)
-            
+
              # display current ingredients and current total price
             new_burger.display_both_current_price
 
@@ -296,7 +296,7 @@ class Order
               puts "Want to make another order?"
               puts "Yes or No"
               another_order_input = gets.chomp.downcase
-              
+
               if another_order_input == "yes"
                 Order.new.begin
               else
@@ -308,7 +308,7 @@ class Order
             puts "Yes or No"
             answer_input = gets.chomp.downcase
           end
-          
+
           if answer_input == "no"
             # display order summary
             new_burger.return_order
@@ -318,7 +318,7 @@ class Order
             puts "Want to make another order?"
             puts "Yes or No"
             another_order_input = gets.chomp.downcase
-            
+
             if another_order_input == "yes"
               Order.new.begin
             else
@@ -334,7 +334,7 @@ class Order
           puts "Want to make another order?"
           puts "Yes or No"
           another_order_input = gets.chomp.downcase
-          
+
           if another_order_input == "yes"
             Order.new.begin
           else
@@ -344,6 +344,6 @@ class Order
       end
     end
   end
-end 
+end
 
 Order.new.begin
