@@ -28,12 +28,12 @@ class Order
     '
 
     hello_message = "Hi, Welome to Flatiron Burger!"
-    `say -v "kathy" #{hello_message}`
+    `say -v "victoria" #{hello_message}`
     puts "Build your own Burger"
     puts "What is the name for the order?"
     name_input = gets.chomp
     new_burger = Burger.find_by(name: name_input)
-    if new_burger
+    if new_burger && !new_burger.output_ingredient.empty?
       puts "You recently built a burger with #{new_burger.output_ingredient}, would you like to reorder now?"
       puts "please type yes or no."
       user_input = gets.chomp.downcase
