@@ -3,7 +3,7 @@ require "pry"
 
 class Order
 
-  def begin
+  def welcome
     puts  '
     ______ _       _   _                   ____
     |  ____| |     | | (_)                 |  _ \
@@ -29,11 +29,17 @@ class Order
 
     hello_message = "Hi, Welome to Flatiron Burger!"
     `say -v "victoria" #{hello_message}`
+    start
+  end
+
+  def start
     puts "Build your own Burger"
     puts "What is the name for the order?"
     name_input = gets.chomp
     new_burger = Burger.find_by(name: name_input)
     if new_burger && !new_burger.output_ingredient.empty?
+      welcomeback_message = new_burger.name
+      `say -v "victoria" "Hi, #{welcomeback_message}"`
       puts "You recently built a burger with #{new_burger.output_ingredient}, would you like to reorder now?"
       puts "please type yes or no."
       user_input = gets.chomp.downcase
@@ -169,7 +175,7 @@ class Order
 
         # if "yes" start new order
         if another_order_input == "yes"
-          return Order.new.begin
+          return Order.new.start
         else
           return
         end
@@ -242,7 +248,7 @@ class Order
             puts "Yes or No"
             another_order_input = gets.chomp.downcase
             if another_order_input == "yes"
-              Order.new.begin
+              Order.new.start
             else
               return
             end
@@ -298,7 +304,7 @@ class Order
               another_order_input = gets.chomp.downcase
 
               if another_order_input == "yes"
-                Order.new.begin
+                Order.new.start
               else
                 return
               end
@@ -320,7 +326,7 @@ class Order
             another_order_input = gets.chomp.downcase
 
             if another_order_input == "yes"
-              Order.new.begin
+              Order.new.start
             else
               return
             end
@@ -336,7 +342,7 @@ class Order
           another_order_input = gets.chomp.downcase
 
           if another_order_input == "yes"
-            Order.new.begin
+            Order.new.start
           else
             return
           end
@@ -346,4 +352,4 @@ class Order
   end
 end
 
-Order.new.begin
+Order.new.welcome

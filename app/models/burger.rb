@@ -5,6 +5,7 @@ class Burger < ActiveRecord::Base
   has_many :ingredients, through: :burger_ingredients
 
   
+
   def menu_output
     puts '
      _ __ ___   ___ _ __  _   _ 
