@@ -46,4 +46,8 @@ describe Burger do
     order1 = BurgerIngredient.create(:burger => @joseph, :ingredient => @lettuce)
     expect(order1.ingredient).to eq(@lettuce)
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> new_dev
