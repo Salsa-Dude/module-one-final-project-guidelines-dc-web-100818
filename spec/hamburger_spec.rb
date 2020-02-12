@@ -2,10 +2,6 @@ require_relative 'spec_helper'
 
 describe Burger do
 
-  # after(:each) do
-  #   .destroy_all
-  # end
-
   before(:each) do
     @joseph = Burger.create(:name => "joseph")
     @nathan = Burger.create(:name => "nathan")
@@ -46,8 +42,7 @@ describe Burger do
     order1 = BurgerIngredient.create(:burger => @joseph, :ingredient => @lettuce)
     expect(order1.ingredient).to eq(@lettuce)
   end
-<<<<<<< HEAD
 end
-=======
+
 end
->>>>>>> new_dev
+
