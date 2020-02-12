@@ -1,3 +1,4 @@
+require_relative 'spec_helper'
 
 describe '#output_ingredient' do
   it "puts ingredients of a burger" do
