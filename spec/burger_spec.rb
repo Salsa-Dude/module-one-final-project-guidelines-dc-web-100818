@@ -5,7 +5,5 @@ describe '#output_ingredient' do
 
     expect(@burger.output_ingredient).to eq(["Onio","Onion", "Onion", "Onion"])
 
-    expect(@burger.output_ingredient).to eq(["Onion""Onion", "Onion", "Onion"])
-
   end
 end
