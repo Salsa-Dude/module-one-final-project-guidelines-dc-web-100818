@@ -23,25 +23,21 @@ describe Burger do
     end
   end
 
-  it "has a price" do
+  it "Meat ingredient has a price" do
     meat = Ingredient.create(:name => "Meat", :price => 2.25)
     expect(meat.price).to eq(2.25)
   end
 
-  it "has a price" do
+  it "Cheese has a price" do
     cheese = Ingredient.create(:name => "Cheese", :price => 1.00)
     expect(cheese.price).to eq(1.00)
   end
 
-  it "BurgerIngredient has a burger" do
+  it "joseph has a burger order" do
     order1 = BurgerIngredient.create(:burger => @joseph, :ingredient => @lettuce)
     expect(order1.burger).to eq(@joseph)
   end
 
-  it "BurgerIngredient has a ingredient" do
-    order1 = BurgerIngredient.create(:burger => @joseph, :ingredient => @lettuce)
-    expect(order1.ingredient).to eq(@lettuce)
-  end
 end
 
 end
